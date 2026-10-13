@@ -1,0 +1,1215 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ==========================================================================
+     CarePlus Executive Healthcare Theme
+     Deep Midnight Navy, Royal Medical Blue, Cyan Plus, Soft Sky Tints
+     ========================================================================== */
+  
+  --cp-navy: #0F172A;              /* Deep CarePlus Midnight Navy */
+  --cp-navy-dark: #0A0F1D;         /* Dark Navy */
+  --cp-navy-surface: #1E293B;      /* Navy Surface */
+  --cp-blue: #0284C7;              /* CarePlus Medical Royal Blue */
+  --cp-blue-hover: #0369A1;        /* Darker Blue Hover */
+  --cp-blue-dark: #075985;         /* Deep Sky */
+  --cp-cyan: #06B6D4;              /* CarePlus Cyan / Medical Plus Accent */
+  --cp-cyan-light: #E0F2FE;        /* Sky Ice */
+  --cp-blue-soft: #F0F9FF;         /* Soft Sky Ribbon & Badges */
+  --cp-blue-border: #BAE6FD;       /* Sky Tint Border */
+  --cp-blue-text: #0369A1;         /* Deep Sky Text */
+
+  --ws-white: #FFFFFF;             /* Pure Crisp White */
+  --ws-smoke: #F8FAFC;             /* Light Sky Smoke Base */
+  --ws-smoke-light: #FAFAFA;       /* Very Light White Smoke */
+  --ws-smoke-soft: #F1F5F9;         /* Soft White Smoke */
+  --ws-smoke-surface: #F8FAFC;     /* Subtle Surface Shade */
+  --ws-smoke-border: #E2E8F0;      /* Clean Modern Border */
+  --ws-smoke-border-hover: #CBD5E1;/* Interactive Border */
+  
+  --ws-dark: #0F172A;              /* Crisp Charcoal / Navy Typography */
+  --ws-dark-soft: #1E293B;         /* Soft Navy */
+  --ws-muted: #64748B;             /* Balanced Slate Gray */
+  --ws-text: #0F172A;              /* High-legibility text */
+
+  /* Healthcare Status Dots */
+  --status-emerald: #10B981;
+  --status-amber: #F59E0B;
+  --status-slate: #94A3B8;
+
+  /* ==========================================================================
+     Design System Compatibility Layer
+     ========================================================================== */
+  --med-primary: var(--cp-blue);
+  --med-primary-hover: var(--cp-blue-hover);
+  --med-primary-dark: var(--cp-blue-dark);
+  --med-primary-light: var(--cp-blue-soft);
+  --med-primary-subtle: #F0F9FF;
+  --med-primary-border: var(--cp-blue-border);
+
+  --med-navy: var(--cp-navy);
+  --med-navy-soft: var(--cp-navy-surface);
+  --med-slate: var(--ws-dark);
+  --med-muted: var(--ws-muted);
+  --med-border: var(--ws-smoke-border);
+  --med-border-hover: var(--ws-smoke-border-hover);
+  --med-bg: var(--ws-smoke);
+  --med-surface: var(--ws-white);
+
+  /* Class Aliases */
+  --pos-primary: var(--cp-blue);
+  --pos-primary-hover: var(--cp-blue-hover);
+  --pos-primary-light: var(--cp-blue-soft);
+  --pos-teal: var(--cp-blue);
+  --pos-teal-light: var(--cp-blue-soft);
+  --pos-emerald: var(--status-emerald);
+  --pos-emerald-light: #DCFCE7;
+  --pos-lime: var(--cp-blue-soft);
+  --pos-lime-hover: #E0F2FE;
+  --pos-dark: var(--cp-navy);
+  --pos-dark-soft: var(--cp-navy-dark);
+  --pos-grey: var(--ws-smoke);
+  --pos-grey-surface: var(--ws-smoke-soft);
+  --pos-white: var(--ws-white);
+  --pos-border-color: var(--ws-smoke-border);
+  --pos-border: 1px solid var(--ws-smoke-border);
+
+  /* Soft Shadows */
+  --pos-shadow: 0 4px 16px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --pos-shadow-hover: 0 14px 32px rgba(15, 23, 42, 0.09), 0 4px 10px rgba(0, 0, 0, 0.04);
+  --pos-shadow-card: 0 2px 10px rgba(0, 0, 0, 0.03);
+  --pos-shadow-elevated: 0 20px 40px rgba(15, 23, 42, 0.12);
+
+  /* Corner Radii */
+  --pos-radius-lg: 20px;
+  --pos-radius-md: 14px;
+  --pos-radius-sm: 10px;
+  --pos-radius-pill: 50px;
+
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--ws-smoke);
+  color: var(--ws-text);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Offset anchor scrolling */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Sticky Medical Navbar with Crisp White Smoke Glassmorphism */
+.pos-navbar-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1040;
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--ws-smoke-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Page Transition Effects */
+.page-transition {
+  animation: medFadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes medFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CarePlus Badges & Tags */
+.pos-tag-lime {
+  background-color: var(--cp-blue-soft);
+  color: var(--cp-blue-text);
+  border: 1px solid var(--cp-blue-border);
+  padding: 5px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.pos-tag-teal {
+  background-color: var(--ws-white);
+  color: var(--cp-blue);
+  border: 1px solid var(--cp-blue-border);
+  padding: 5px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.pos-tag-white {
+  background-color: var(--ws-white);
+  color: var(--cp-navy);
+  padding: 5px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+  border: 1px solid var(--ws-smoke-border);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.pos-tag-dark {
+  background-color: var(--cp-navy);
+  color: #FFFFFF;
+  padding: 5px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.pos-tag-emerald {
+  background-color: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #86EFAC;
+  padding: 5px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+/* Section Header Structure */
+.pos-section-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.pos-section-title {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: var(--ws-dark);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.pos-section-desc {
+  max-width: 580px;
+  color: var(--ws-muted);
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CarePlus Royal Blue & Sky Buttons
+   ========================================================================== */
+.btn-pos-dark {
+  background-color: var(--cp-blue);
+  color: #FFFFFF;
+  border: 1px solid var(--cp-blue);
+  border-radius: var(--pos-radius-sm);
+  padding: 0.75rem 1.65rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.btn-pos-dark:hover {
+  background-color: var(--cp-blue-hover);
+  color: #FFFFFF;
+  border-color: var(--cp-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.35);
+}
+
+.btn-pos-lime {
+  background-color: var(--cp-blue-soft);
+  color: var(--cp-blue-text);
+  border: 1.5px solid var(--cp-blue-border);
+  border-radius: var(--pos-radius-sm);
+  padding: 0.75rem 1.65rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.08);
+}
+
+.btn-pos-lime:hover {
+  background-color: #E0F2FE;
+  color: var(--cp-blue-dark);
+  border-color: #7DD3FC;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.15);
+}
+
+.btn-pos-outline {
+  background-color: var(--ws-white);
+  color: var(--ws-dark);
+  border: 1.5px solid var(--ws-smoke-border);
+  border-radius: var(--pos-radius-sm);
+  padding: 0.75rem 1.65rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-pos-outline:hover {
+  background-color: var(--ws-smoke);
+  color: var(--ws-dark);
+  border-color: var(--ws-smoke-border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   White & Smoke Cards & Surfaces
+   ========================================================================== */
+.pos-card-base {
+  border: 1px solid var(--ws-smoke-border);
+  border-radius: var(--pos-radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--pos-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ws-white);
+}
+
+.pos-card-base:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--pos-shadow-hover);
+  border-color: var(--ws-smoke-border-hover);
+}
+
+.pos-card-grey {
+  background: linear-gradient(180deg, var(--ws-white) 0%, var(--ws-smoke) 100%);
+  border: 1px solid var(--ws-smoke-border);
+  color: var(--ws-dark);
+}
+
+.pos-card-lime {
+  background: linear-gradient(135deg, var(--ws-white) 0%, var(--ws-smoke-soft) 100%);
+  border: 1px solid var(--ws-smoke-border);
+  color: var(--ws-dark);
+}
+
+.pos-card-dark {
+  background: linear-gradient(135deg, var(--ws-dark) 0%, var(--ws-dark-soft) 100%);
+  border: 1px solid #3F3F46;
+  color: #FFFFFF;
+}
+
+.pos-card-white {
+  background-color: var(--ws-white);
+  border: 1px solid var(--ws-smoke-border);
+  color: var(--ws-dark);
+}
+
+/* Arrow circle icon badge */
+.pos-arrow-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ws-smoke-border);
+  font-size: 1.15rem;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  background-color: var(--ws-white);
+}
+
+.pos-arrow-dark {
+  background-color: var(--ws-dark);
+  color: var(--ws-white);
+  border-color: var(--ws-dark);
+}
+
+.pos-arrow-lime {
+  background-color: var(--ws-smoke);
+  color: var(--ws-dark);
+  border-color: var(--ws-smoke-border);
+}
+
+.pos-card-base:hover .pos-arrow-circle {
+  transform: rotate(45deg);
+}
+
+/* Accordion Process items */
+.pos-accordion-item {
+  border: 1px solid var(--ws-smoke-border);
+  border-radius: var(--pos-radius-lg) !important;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  background-color: var(--ws-white);
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+.pos-accordion-item.active {
+  background-color: var(--ws-smoke);
+  border-color: var(--ws-smoke-border-hover);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.pos-accordion-header {
+  padding: 1.15rem 1.65rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pos-accordion-number {
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ws-dark);
+  min-width: 32px;
+}
+
+.pos-accordion-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--ws-smoke-border);
+  background-color: var(--ws-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ws-dark);
+  transition: all 0.2s ease;
+}
+
+.pos-accordion-item.active .pos-accordion-toggle {
+  background-color: var(--ws-dark);
+  color: var(--ws-white);
+  border-color: var(--ws-dark);
+}
+
+.pos-accordion-body {
+  padding: 0 1.65rem 1.35rem 1.65rem;
+  border-top: 1px solid var(--ws-smoke-border);
+  padding-top: 1.15rem;
+  color: var(--ws-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Service Card Image Styling */
+.service-img-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  width: 135px;
+  height: 135px;
+  flex-shrink: 0;
+  background-color: var(--ws-white);
+  border: 1px solid var(--ws-smoke-border);
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.pos-card-base:hover .service-img-wrapper {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.pos-card-base:hover .service-card-img {
+  transform: scale(1.06);
+}
+
+/* Process Step Image Type Icon Badge */
+.process-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  font-size: 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background-color: var(--ws-smoke);
+  border: 1px solid var(--ws-smoke-border);
+  color: var(--ws-dark);
+}
+
+.pos-accordion-item:hover .process-step-icon {
+  transform: scale(1.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   DOCTOR CARD & PORTRAIT PHOTO STYLES (CarePlus Executive Theme)
+   ========================================================================== */
+.doctor-card,
+.careplus-doc-card {
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.doctor-card:hover,
+.careplus-doc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.12), 0 0 0 1px rgba(6, 182, 212, 0.35);
+  border-color: #BAE6FD;
+}
+
+.careplus-doc-banner {
+  height: 74px;
+  background: linear-gradient(135deg, #0B2545 0%, #134074 55%, #0284C7 100%);
+  position: relative;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.careplus-doc-banner-tag {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  color: #0369A1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(186, 230, 253, 0.85);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.careplus-doc-body {
+  padding: 0 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.careplus-doc-avatar-wrap {
+  margin-top: -42px;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.doctor-photo-wrap {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22);
+  border: 3.5px solid #FFFFFF;
+  flex-shrink: 0;
+  background-color: #F1F5F9;
+}
+
+.careplus-doc-avatar-img,
+.doctor-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.doctor-card:hover .doctor-photo-img,
+.careplus-doc-card:hover .careplus-doc-avatar-img {
+  transform: scale(1.08);
+}
+
+.doctor-status-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2.5px solid #FFFFFF;
+  z-index: 2;
+}
+
+.doctor-status-available {
+  background-color: var(--status-emerald);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.35);
+}
+
+.doctor-status-busy {
+  background-color: var(--status-amber);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.35);
+}
+
+.doctor-status-leave {
+  background-color: var(--status-slate);
+  box-shadow: 0 0 0 2px rgba(148, 163, 184, 0.35);
+}
+
+.careplus-doc-rating,
+.doctor-rating-pill {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.careplus-doc-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+}
+
+.careplus-doc-spec {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0284C7;
+  margin-bottom: 0.85rem;
+}
+
+.careplus-doc-meta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  font-size: 0.82rem;
+  color: #64748B;
+}
+
+.careplus-doc-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.careplus-doc-meta-item i {
+  color: #0284C7;
+  font-size: 0.9rem;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.careplus-doc-footer {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.careplus-status-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.careplus-status-available {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+}
+
+.careplus-status-busy {
+  background: #FFFBEB;
+  color: #D97706;
+  border: 1px solid #FDE68A;
+}
+
+.careplus-status-leave {
+  background: #F1F5F9;
+  color: #64748B;
+  border: 1px solid #CBD5E1;
+}
+
+.btn-careplus-view {
+  background: #0284C7;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 5px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.28);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-careplus-view:hover {
+  background: #0369A1;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.38);
+}
+
+.doctor-chip {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #64748B;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   Portal Layout Styles
+   ========================================================================== */
+.portal-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--ws-smoke);
+}
+
+.portal-sidebar {
+  width: 275px;
+  background-color: var(--ws-white);
+  border-right: 1px solid var(--ws-smoke-border);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.02);
+}
+
+.portal-sidebar .nav-link {
+  color: var(--ws-muted);
+  font-weight: 600;
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--pos-radius-sm);
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.portal-sidebar .nav-link:hover {
+  background-color: var(--ws-smoke);
+  color: var(--ws-dark);
+  border-color: var(--ws-smoke-border);
+}
+
+.portal-sidebar .nav-link.active {
+  background-color: var(--ws-smoke);
+  color: var(--ws-dark);
+  border: 1px solid var(--ws-smoke-border);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.portal-sidebar .nav-link.active i {
+  color: var(--ws-dark);
+}
+
+.portal-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.portal-topbar {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ws-smoke-border);
+  padding: 0.9rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.portal-content {
+  padding: 2.25rem;
+  flex: 1;
+}
+
+/* Modern Form Inputs */
+.pos-input {
+  border: 1px solid var(--ws-smoke-border);
+  border-radius: var(--pos-radius-sm);
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ws-dark);
+  background-color: var(--ws-white);
+  transition: all 0.2s ease;
+}
+
+.pos-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(24, 24, 27, 0.1);
+  border-color: var(--ws-dark);
+}
+
+/* Hospital Table Styling */
+.pos-table-card {
+  border: 1px solid var(--ws-smoke-border);
+  border-radius: var(--pos-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--pos-shadow);
+  background-color: var(--ws-white);
+}
+
+.pos-table thead th {
+  background-color: var(--ws-smoke);
+  color: var(--ws-dark);
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid var(--ws-smoke-border);
+}
+
+.pos-table tbody td {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid #F0F0F0;
+  vertical-align: middle;
+  color: var(--ws-dark);
+}
+
+.pos-table tbody tr:hover {
+  background-color: var(--ws-smoke-light);
+}
+
+/* API Learning box styling */
+.pos-api-box {
+  background-color: var(--ws-dark);
+  color: #FFFFFF;
+  border-radius: var(--pos-radius-md);
+  border: 1px solid #3F3F46;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Micro-animations */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--pos-shadow-hover);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .pos-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .portal-sidebar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   CarePlus Executive Dashboard Theme
+   ========================================================================== */
+:root {
+  /* CarePlus Core Medical Palette */
+  --careplus-navy: #0F172A;
+  --careplus-navy-deep: #0A0F1D;
+  --careplus-blue: #0284C7;
+  --careplus-blue-hover: #0369A1;
+  --careplus-cyan: #06B6D4;
+  --careplus-cyan-glow: #38BDF8;
+  --careplus-sky-soft: #F0F9FF;
+  --careplus-sky-border: #BAE6FD;
+  --careplus-sky-text: #0369A1;
+  --careplus-mint: #10B981;
+  --careplus-card-border: #E2E8F0;
+
+  /* Backward Compatibility Aliases */
+  --c9-plum: var(--careplus-navy);
+  --c9-plum-dark: var(--careplus-navy-deep);
+  --c9-pink: var(--careplus-blue);
+  --c9-pink-soft: var(--careplus-sky-soft);
+  --c9-pink-border: var(--careplus-sky-border);
+  --c9-pink-text: var(--careplus-sky-text);
+}
+
+/* CarePlus Portal Sidebar Styling */
+.careplus-sidebar,
+.c9-sidebar {
+  width: 104px;
+  background: linear-gradient(180deg, #0A192F 0%, #0F172A 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 0.5rem;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 4px 0 24px rgba(10, 25, 47, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.careplus-nav-btn,
+.c9-nav-btn {
+  width: 88px;
+  min-height: 62px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.65);
+  background: transparent;
+  border: 1px solid transparent;
+  margin-bottom: 0.65rem;
+  padding: 8px 4px 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.careplus-nav-icon {
+  font-size: 1.32rem;
+  line-height: 1;
+  margin-bottom: 3px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.careplus-nav-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: center;
+  line-height: 1.15;
+  color: inherit;
+  transition: color 0.2s ease;
+  max-width: 82px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.careplus-nav-btn:hover,
+.c9-nav-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.careplus-nav-btn:hover .careplus-nav-icon,
+.c9-nav-btn:hover i {
+  transform: scale(1.1);
+  color: var(--careplus-cyan-glow);
+}
+
+.careplus-nav-btn.active,
+.c9-nav-btn.active {
+  color: #FFFFFF;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.28) 0%, rgba(6, 182, 212, 0.18) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.careplus-nav-btn.active .careplus-nav-icon,
+.c9-nav-btn.active i {
+  color: var(--careplus-cyan-glow);
+  transform: scale(1.08);
+}
+
+.careplus-nav-btn.active .careplus-nav-label {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.careplus-nav-btn.active::before,
+.c9-nav-btn.active::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 12px;
+  bottom: 12px;
+  width: 4px;
+  background: linear-gradient(180deg, #38BDF8 0%, #0284C7 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+/* CarePlus Doctor Profile Card */
+.careplus-doctor-card,
+.c9-doctor-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(10, 25, 47, 0.04);
+}
+
+.careplus-cover-banner,
+.c9-cover-banner {
+  height: 110px;
+  background: linear-gradient(135deg, #0B2545 0%, #134074 50%, #0284C7 100%);
+  position: relative;
+}
+
+.careplus-avatar-container,
+.c9-avatar-container {
+  margin-top: -55px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.careplus-avatar-img,
+.c9-avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.22);
+  background: #F1F5F9;
+}
+
+.careplus-info-row,
+.c9-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+  font-size: 0.88rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.careplus-info-row:last-child,
+.c9-info-row:last-child {
+  border-bottom: none;
+}
+
+.careplus-info-label,
+.c9-info-label {
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.careplus-info-value,
+.c9-info-value {
+  color: #0F172A;
+  font-weight: 600;
+  text-align: right;
+  max-width: 58%;
+}
+
+/* CarePlus Address Card */
+.careplus-address-card,
+.c9-address-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  box-shadow: 0 2px 10px rgba(10, 25, 47, 0.02);
+}
+
+/* CarePlus Top 3-Column Info Card */
+.careplus-metrics-card,
+.c9-metrics-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(10, 25, 47, 0.04);
+}
+
+.careplus-col-divider,
+.c9-col-divider {
+  border-left: 1px solid #E2E8F0;
+}
+
+@media (max-width: 991px) {
+  .careplus-col-divider,
+  .c9-col-divider {
+    border-left: none;
+    border-top: 1px solid #E2E8F0;
+    padding-top: 1.25rem;
+    margin-top: 1.25rem;
+  }
+}
+
+.careplus-spec-label,
+.c9-spec-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 1rem;
+}
+
+.careplus-spec-row,
+.c9-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.55rem;
+  font-size: 0.85rem;
+}
+
+.careplus-spec-key,
+.c9-spec-key {
+  color: #64748B;
+}
+
+.careplus-spec-val,
+.c9-spec-val {
+  color: #0F172A;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* CarePlus Commercials Tables */
+.careplus-commercial-card,
+.c9-commercial-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(10, 25, 47, 0.04);
+  margin-bottom: 1.5rem;
+}
+
+.careplus-commercial-header,
+.c9-commercial-header {
+  background: linear-gradient(90deg, #F0F9FF 0%, #E0F2FE 100%);
+  border-bottom: 1px solid #BAE6FD;
+  padding: 0.95rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #0369A1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.careplus-table,
+.c9-table {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.careplus-table th,
+.c9-table th {
+  background-color: #F8FAFC;
+  color: #334155;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid #E2E8F0;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+}
+
+.careplus-table td,
+.c9-table td {
+  padding: 0.95rem 1.25rem;
+  font-size: 0.88rem;
+  color: #1E293B;
+  border-bottom: 1px solid #F1F5F9;
+  vertical-align: middle;
+}
+
+.careplus-table tbody tr:last-child td,
+.c9-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.careplus-table tbody tr:hover td,
+.c9-table tbody tr:hover td {
+  background-color: #F0F9FF;
+}
+
