@@ -13,17 +13,18 @@ function AppointmentsPage() {
   const [statusFilter, setStatusFilter] = useState('ALL');
   const [alert, setAlert] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
 
-  // Form State
-  const getInitialFormState = () => ({
+   const getInitialFormState = () => {
+  return {
     patientName: '',
     doctorName: '',
-    department: 'General Medicine',
-    date: '2026-10-09',
-    time: '10:00',
+    department: '',
+    date: '',
+    time: '',
     notes: '',
-  });
+  };
+};
+  };
   const [formData, setFormData] = useState(getInitialFormState);
 
   // API Contracts

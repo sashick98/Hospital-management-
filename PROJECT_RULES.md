@@ -28,7 +28,8 @@ hospital-management/
 │   │   ├── components/           <-- Reusable UI components (Navbar, Sidebar, Modals, Forms)
 │   │   ├── pages/                <-- Views (Dashboard, Patients, Appointments, Doctors, Billing)
 │   │   ├── services/             <-- Axios API calls and client-side helpers
-│   │   ├── assets/               <-- Styles, icons, logos
+│   │   ├── assets/       +
+        <-- Styles, icons, logos
 │   │   ├── App.jsx               <-- Main application entry
 │   │   └── main.jsx              <-- Vite React mounting point
 │   ├── package.json
